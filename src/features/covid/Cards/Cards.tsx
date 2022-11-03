@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import { selectData } from "../covidSlice";
 const Cards: FC = () => {
   const data = useSelector(selectData);
+  console.log(data);
   return (
     <div className={styles.container}>
       <Grid container spacing={1} justifyContent="center">
