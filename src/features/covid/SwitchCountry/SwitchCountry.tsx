@@ -2,8 +2,8 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { NativeSelect, FormControl } from "@material-ui/core";
 
-import { useDispatch } from "react-redux";
 import { fetchAsyncGetCountry } from "../covidSlice";
+import { useAppDispatch } from "../../../app/hooks";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
 
 const SwitchCoutry: React.FC = () => {
   const classes = useStyles();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const countries = [
     "japan",
