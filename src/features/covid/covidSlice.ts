@@ -16,15 +16,15 @@ type covidState = {
 const initialState: covidState = {
   data: {
     confirmed: {
-      value: 630292074,
+      value: 240760,
       detail: "https://covid19.mathdro.id/api/confirmed",
     },
     recovered: {
-      value: 0,
+      value: 190717,
       detail: "https://covid19.mathdro.id/api/recovered",
     },
     deaths: {
-      value: 6589554,
+      value: 34788,
       detail: "https://covid19.mathdro.id/api/deaths",
     },
     dailySummary: "https://covid19.mathdro.id/api/daily",

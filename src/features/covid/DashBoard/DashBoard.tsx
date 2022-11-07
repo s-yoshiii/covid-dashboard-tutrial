@@ -11,6 +11,10 @@ import {
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../../app/hooks";
 import { fetchAsyncGet, fetchAsyncGetDaily, selectData } from "../covidSlice";
+import SwitchCoutry from "../SwitchCountry/SwitchCountry";
+import Chart from "../Chart/Chart";
+import PieChart from "../PieChart/PieChart";
+import Cards from "../Cards/Cards";
 const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
@@ -27,7 +31,38 @@ const DashBoard: FC = () => {
     dispatch(fetchAsyncGet());
     dispatch(fetchAsyncGetDaily);
   }, [dispatch]);
-  return <div></div>;
+  return (
+    <div>
+      <AppBar position="absolute">
+        <Toolbar>
+          <Typography variant="h6" className={classes.title}>
+            Covid 19 Live Dashboard
+          </Typography>
+          {data && (
+            <Typography variant="body1">
+              {new Date(data.lastUpdate).toDateString()}
+            </Typography>
+          )}
+        </Toolbar>
+      </AppBar>
+      <Container className={classes.content}>
+        <div className={styles.container}>
+          <SwitchCoutry />
+        </div>
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={7}>
+            <Chart />
+          </Grid>
+          <Grid item xs={12} md={5}>
+            <PieChart />
+          </Grid>
+          <Grid item xs={12} md={12}>
+            <Cards />
+          </Grid>
+        </Grid>
+      </Container>
+    </div>
+  );
 };
 
 export default DashBoard;
